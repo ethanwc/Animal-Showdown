@@ -8,6 +8,7 @@ class Animal {
         this.x = x;
         this.y = y;
         this.speed = 100;
+        this.maxRange = 100;
         this.removeFromWorld = false;
         this.forward = undefined;
         this.backwards = undefined;
@@ -65,8 +66,26 @@ class Animal {
 
     attack() {
         if (gameEngine.timer.gameTime - this.lastAttack > this.attackTime) {
-        if (this.target !== undefined && this.isAlive)
-        this.target.health -= 1;
+        if (this.target !== undefined && this.isAlive) {
+            if (Distance(this.x, this.y, this.target.x, this.target.y) > this.maxRange) {
+                let horizontal = this.x - this.target.x;
+                let vertical = this.y - this.target.y;
+
+                //if farther to the right, move left
+                if (Math.abs(horizontal) > 20) {
+                    if (horizontal > 0) this.x -= this.speed * gameEngine.clockTick;
+                    if (horizontal < 0) this.x += this.speed * gameEngine.clockTick;
+                }
+
+                //if too far down, move back up
+                if (Math.abs(vertical) > 20) {
+                    if (vertical > 0) this.y -= this.speed * gameEngine.clockTick;
+                    if (vertical < 0) this.y += this.speed * gameEngine.clockTick;
+                }
+
+            }
+            else this.target.health -= 1;
+        }
         this.lastAttack = gameEngine.timer.gameTime;
         }
         // console.log(this.type, " did ", 1, " damage to ", this.target.type);
