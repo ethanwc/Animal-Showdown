@@ -1,5 +1,14 @@
 let AM = new AssetManager();
 AM.queueDownload("./img/cat.png");
+AM.queueDownload("./img/tiger.png");
+AM.queueDownload("./img/chicken.png");
+AM.queueDownload("./img/squirrel.png");
+AM.queueDownload("./img/owl.png");
+AM.queueDownload("./img/dragon.png");
+AM.queueDownload("./img/squirrel.png");
+
+
+
 let gameEngine = undefined;
 
 AM.downloadAll(function () {
@@ -21,5 +30,19 @@ AM.downloadAll(function () {
     for (let i = 0; i < assets.length; i++) {
         gameEngine.addEntity(assets[i]);
     }
-    gameEngine.addEntity(new Cat());
+
+
+    for (let i = 0; i < 1000; i++) {
+        let x = Math.ceil((Math.random()) * 1000);
+        let y = Math.ceil((Math.random()) * 1000);
+        gameEngine.addEntity(new Cat(x,y));
+
+        // let r = Math.floor(Math.random() * 6);
+        // if (r === 0) gameEngine.addEntity(new Cat(x,y));
+        // else if (r === 1)gameEngine.addEntity(new Tiger(x,y));
+        // else if (r === 2)gameEngine.addEntity(new Squirrel(x,y));
+        // else if (r === 3)gameEngine.addEntity(new Owl(x,y));
+        // else if (r === 4) gameEngine.addEntity(new Chicken(x,y));
+        // else gameEngine.addEntity(new Dragon(x,y));
+    }
 });

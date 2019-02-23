@@ -1,8 +1,8 @@
-class Cat extends Animal {
+class Squirrel extends Animal {
     //spritesheet is (3 by 4 per position) 4 by 3 - 12 different assets, each with 4 states
     constructor(x, y) {
         super(x, y);
-        this.spritesheet = AM.getAsset("./img/cat.png");
+        this.spritesheet = AM.getAsset("./img/squirrel.png");
         this.w = 48;
         this.h = 48;
         this.defineAnimations();
