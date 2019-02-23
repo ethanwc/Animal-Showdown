@@ -40,18 +40,16 @@ class Chicken extends Animal {
     }
 
     defineAnimations() {
-        //start x and y offset
-        //generate two random numbers (0-1) and (0-3) to pick the cat's spritesheet
-
+        //generate two random numbers (0-1) and (0-3) to pick the cat's sub sprite sheet image
         let r = Math.floor(Math.random() * 4);
-        let c = Math.floor(Math.random() * 1);
-
+        let c = Math.floor(Math.random());
         let xoff = r * this.w * 3;
         let yoff = c * this.h * 4;
-        console.log(r,c);
-        console.log(xoff, yoff);
 
         this.forward = new Animation(this.spritesheet, xoff, yoff, this.w, this.h, 3, .22, 3, true, false);
+        this.left = new Animation(this.spritesheet, xoff, yoff + this.h, this.w, this.h, 3, .22, 3, true, false);
+        this.right = new Animation(this.spritesheet, xoff, yoff + this.h * 2, this.w, this.h, 3, .22, 3, true, false);
+        this.backwards = new Animation(this.spritesheet, xoff, yoff + this.h * 3, this.w, this.h, 3, .22, 3, true, false);
     }
 
 }

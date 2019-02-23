@@ -24,7 +24,7 @@ class Dragon extends Animal {
                 ctx.beginPath();
                 ctx.lineWidth = 12;
                 let x1 = this.x + this.w/2 * this.scale;
-                let y1 = this.y + this.h/2 * this.scale
+                let y1 = this.y + this.h/2 * this.scale;
                 ctx.moveTo(x1, y1);
                 let x2 = this.target.x + this.target.w/2 * this.target.scale;
                 let y2 = this.target.y + this.target.h/2 * this.target.scale;

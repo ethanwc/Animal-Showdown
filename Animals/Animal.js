@@ -7,9 +7,10 @@ class Animal {
         this.isAlive = true;
         this.x = x;
         this.y = y;
-        this.speed = 100;
-        this.maxRange = 100;
+        this.speed = 200;
+        this.maxRange = 200;
         this.removeFromWorld = false;
+        this.animation = undefined;
         this.forward = undefined;
         this.backwards = undefined;
         this.left = undefined;
@@ -71,17 +72,23 @@ class Animal {
                 let horizontal = this.x - this.target.x;
                 let vertical = this.y - this.target.y;
 
+                let horDif = Math.abs(horizontal);
+                let verDif = Math.abs(vertical);
+
                 //if farther to the right, move left
-                if (Math.abs(horizontal) > 20) {
+                if (horDif > 20) {
                     if (horizontal > 0) this.x -= this.speed * gameEngine.clockTick;
                     if (horizontal < 0) this.x += this.speed * gameEngine.clockTick;
                 }
 
                 //if too far down, move back up
-                if (Math.abs(vertical) > 20) {
+                if (verDif > 20) {
                     if (vertical > 0) this.y -= this.speed * gameEngine.clockTick;
                     if (vertical < 0) this.y += this.speed * gameEngine.clockTick;
                 }
+
+                if (horDif > verDif) this.animation = (this.target.x < this.x) ? this.left : this.right;
+                else this.animation = (this.target.y < this.y) ? this.backwards : this.forward;
 
             }
             else this.target.health -= 1;
