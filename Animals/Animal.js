@@ -14,6 +14,8 @@ class Animal {
         this.left = undefined;
         this.right = undefined;
         this.target = undefined;
+        this.lastAttack = 0;
+        this.attackTime = .05;
     }
 
 
@@ -48,20 +50,25 @@ class Animal {
             if (gameEngine.entities[i] instanceof Animal) {
                 let animal = gameEngine.entities[i];
                 if (this.type !== animal.type && animal.isAlive) {
-                    if (Distance(this.x, this.y, animal.x, animal.y) < distance) {
+                    let tempDistance = Distance(this.x, this.y, animal.x, animal.y);
+                    if (tempDistance < distance) {
+                        distance = tempDistance;
                         target = animal;
                     }
                 }
             }
         }
         this.target = target;
-        // console.log(this.type, " should be attacking ", this.target.type);
+        // console.log(this.type, " should be attacking ", this.target.type, " Distance: ", Distance(this.x, this.y, this.target.x, this.target.y));
         this.attack();
     }
 
     attack() {
+        if (gameEngine.timer.gameTime - this.lastAttack > this.attackTime) {
         if (this.target !== undefined && this.isAlive)
         this.target.health -= 1;
+        this.lastAttack = gameEngine.timer.gameTime;
+        }
         // console.log(this.type, " did ", 1, " damage to ", this.target.type);
     }
 

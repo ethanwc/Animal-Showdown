@@ -25,7 +25,6 @@ AM.downloadAll(function () {
     let assets = [];
 
     gameEngine.init(ctx);
-    gameEngine.start();
 
     for (let i = 0; i < assets.length; i++) {
         gameEngine.addEntity(assets[i]);
@@ -56,6 +55,8 @@ AM.downloadAll(function () {
         x = Math.ceil((Math.random()) * 1000);
         y = Math.ceil((Math.random()) * 1000);
         gameEngine.addEntity(new Dragon(x, y));
-
     }
+
+    gameEngine.start();
+
 });
