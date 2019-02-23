@@ -1,4 +1,5 @@
 let AM = new AssetManager();
+let pause = false;
 AM.queueDownload("./img/cat.png");
 AM.queueDownload("./img/tiger.png");
 AM.queueDownload("./img/chicken.png");
@@ -10,6 +11,11 @@ AM.queueDownload("./img/squirrel.png");
 
 let gameOver = false;
 let gameEngine = undefined;
+
+window.onkeydown = function(e) {
+    if (e.keyCode === 80) pause = !pause;
+};
+
 
 AM.downloadAll(function () {
     let canvas = document.getElementById("gameWorld");

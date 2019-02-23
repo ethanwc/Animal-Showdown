@@ -52,9 +52,11 @@ class GameEngine {
     }
 
     loop() {
-        this.clockTick = this.timer.tick();
-        this.update();
-        this.draw();
+        if (!pause) {
+            this.clockTick = this.timer.tick();
+            this.update();
+            this.draw();
+        }
     }
 
     draw() {

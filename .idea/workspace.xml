@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7d59c20-0a4c-488a-a35e-01a33f056822" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Animals/Animal.js" afterPath="$PROJECT_DIR$/Animals/Animal.js" />
-      <change beforePath="$PROJECT_DIR$/Animals/Chicken.js" afterPath="$PROJECT_DIR$/Animals/Chicken.js" />
-      <change beforePath="$PROJECT_DIR$/Animals/Dragon.js" afterPath="$PROJECT_DIR$/Animals/Dragon.js" />
+      <change beforePath="$PROJECT_DIR$/Game/gameengine.js" afterPath="$PROJECT_DIR$/Game/gameengine.js" />
+      <change beforePath="$PROJECT_DIR$/Game/main.js" afterPath="$PROJECT_DIR$/Game/main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Game/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="33" column="33" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+            <state relative-caret-position="275">
+              <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -31,18 +30,18 @@
       <file leaf-file-name="gameengine.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Game/gameengine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="681">
-              <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+            <state relative-caret-position="242">
+              <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Animal.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Animal.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Animals/Animal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+            <state relative-caret-position="500">
+              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -111,8 +110,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="69" lean-forward="true" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+            <state relative-caret-position="225">
+              <caret line="9" column="64" lean-forward="true" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
               <folding>
                 <element signature="n#style#0;n#canvas#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -143,6 +142,7 @@
       <find>dragon</find>
       <find>play</find>
       <find>this.an</find>
+      <find>loop</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -171,10 +171,11 @@
         <option value="$PROJECT_DIR$/Animals/Squirrel.js" />
         <option value="$PROJECT_DIR$/Animals/Tiger.js" />
         <option value="$PROJECT_DIR$/Animals/Cat.js" />
-        <option value="$PROJECT_DIR$/Game/main.js" />
         <option value="$PROJECT_DIR$/Animals/Dragon.js" />
         <option value="$PROJECT_DIR$/Animals/Chicken.js" />
         <option value="$PROJECT_DIR$/Animals/Animal.js" />
+        <option value="$PROJECT_DIR$/Game/gameengine.js" />
+        <option value="$PROJECT_DIR$/Game/main.js" />
       </list>
     </option>
   </component>
@@ -291,12 +292,12 @@
       <workItem from="1550821017615" duration="1113000" />
       <workItem from="1550830389169" duration="12550000" />
       <workItem from="1550894187425" duration="16000" />
-      <workItem from="1550897475128" duration="10750000" />
+      <workItem from="1550897475128" duration="11133000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27912000" />
+    <option name="totallyTimeSpent" value="28295000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -627,22 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Game/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="33" column="33" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Game/gameengine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Animals/Dragon.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -691,20 +676,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Animals/Animal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game/gameengine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="69" lean-forward="true" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+        <state relative-caret-position="225">
+          <caret line="9" column="64" lean-forward="true" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
           <folding>
             <element signature="n#style#0;n#canvas#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Animals/Animal.js">
+    <entry file="file://$PROJECT_DIR$/Game/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+        <state relative-caret-position="275">
+          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
           <folding />
         </state>
       </provider>
