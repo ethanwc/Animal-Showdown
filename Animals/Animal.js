@@ -2,7 +2,7 @@ class Animal {
     constructor(x, y, type) {
         this.type = type;
         // this.color = "#"+((1<<24)*Math.random()|0).toString(16);
-        this.health = 100 + Math.ceil(Math.random() * 50);
+        this.health = 100;// + Math.ceil(Math.random() * 50);
         this.mana = 100;
         this.isAlive = true;
         this.x = x;
@@ -80,8 +80,8 @@ class Animal {
                 //fighting and close enough
                 else {
                     if (this.target.type === this.type && gameEngine.entities.length < animalcap) {
-                        let x = Math.ceil((Math.random()) * 1000);
-                        let y = Math.ceil((Math.random()) * 1000);
+                        let x = Math.ceil((Math.random()) * 500);
+                        let y = Math.ceil((Math.random()) * 500);
 
                         if (this.type === "cat") gameEngine.addEntity(new Cat(x, y));
                         if (this.type === "chicken") gameEngine.addEntity(new Chicken(x, y));
@@ -91,7 +91,7 @@ class Animal {
                         if (this.type === "tiger") gameEngine.addEntity(new Tiger(x, y));
                         this.pickTarget();
                     }
-                    else this.target.health -= 50;
+                    else this.target.health -= 100;
                 }
             }
             this.lastAttack = gameEngine.timer.gameTime;

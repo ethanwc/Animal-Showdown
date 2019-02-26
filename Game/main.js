@@ -8,7 +8,7 @@ AM.queueDownload("./img/owl.png");
 AM.queueDownload("./img/dragon.png");
 AM.queueDownload("./img/squirrel.png");
 
-let animalcap = 150;
+let animalcap = 300;
 let gameOver = false;
 let gameEngine = undefined;
 
@@ -31,34 +31,35 @@ AM.downloadAll(function () {
     let assets = [];
 
     gameEngine.init(ctx);
+    let r = 500;
 
     for (let i = 0; i < assets.length; i++) {
         gameEngine.addEntity(assets[i]);
     }
 
-    for (let i = 0; i < 5; i++) {
-        let x = Math.ceil((Math.random()) * 1000);
-        let y = Math.ceil((Math.random()) * 1000);
+    for (let i = 0; i < 10; i++) {
+        let x = Math.ceil((Math.random()) * r);
+        let y = Math.ceil((Math.random()) * r);
         gameEngine.addEntity(new Cat(x, y));
 
-        x = Math.ceil((Math.random()) * 1000);
-        y = Math.ceil((Math.random()) * 1000);
+        x = Math.ceil((Math.random()) * r);
+        y = Math.ceil((Math.random()) * r);
         gameEngine.addEntity(new Tiger(x, y));
 
-        x = Math.ceil((Math.random()) * 1000);
-        y = Math.ceil((Math.random()) * 1000);
+        x = Math.ceil((Math.random()) * r);
+        y = Math.ceil((Math.random()) * r);
         gameEngine.addEntity(new Squirrel(x, y));
 
-        x = Math.ceil((Math.random()) * 1000);
-        y = Math.ceil((Math.random()) * 1000);
+        x = Math.ceil((Math.random()) * r);
+        y = Math.ceil((Math.random()) * r);
         gameEngine.addEntity(new Owl(x, y));
 
-        x = Math.ceil((Math.random()) * 1000);
-        y = Math.ceil((Math.random()) * 1000);
+        x = Math.ceil((Math.random()) * r);
+        y = Math.ceil((Math.random()) * r);
         gameEngine.addEntity(new Chicken(x, y));
 
-        x = Math.ceil((Math.random()) * 1000);
-        y = Math.ceil((Math.random()) * 1000);
+        x = Math.ceil((Math.random()) * r);
+        y = Math.ceil((Math.random()) * r);
         gameEngine.addEntity(new Dragon(x, y));
     }
     gameEngine.start();
