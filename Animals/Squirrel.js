@@ -6,7 +6,7 @@ class Squirrel extends Animal {
         this.w = 48;
         this.h = 48;
         this.attackSpeed = 1;
-        this.scale = 4;
+        this.scale = 1.5;
         this.color = "orange";
         this.defineAnimations();
         this.animation = this.left;
@@ -17,12 +17,11 @@ class Squirrel extends Animal {
     }
 
     draw(ctx) {
-        if (this.isAlive) {
             this.animation.drawFrame(gameEngine.clockTick, ctx, this.x, this.y, this.scale);
-            if (this.target !== undefined) {
+        if (this.target !== undefined && !gameOver) {
                 ctx.strokeStyle = this.color;
                 ctx.beginPath();
-                ctx.lineWidth = 12;
+                ctx.lineWidth = 2;
                 let x1 = this.x + this.w/2 * this.scale;
                 let y1 = this.y + this.h/2 * this.scale
                 ctx.moveTo(x1, y1);
@@ -30,7 +29,6 @@ class Squirrel extends Animal {
                 let y2 = this.target.y + this.target.h/2 * this.target.scale;
                 ctx.lineTo(x2,y2);
                 ctx.stroke();
-            }
         }
     }
 

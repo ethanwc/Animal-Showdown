@@ -44,9 +44,8 @@ class GameEngine {
         for (let i = 0; i < this.entities.length; i++) {
             let entity = this.entities[i];
             if (typeof entity.update === "undefined") console.log("error: ", entity);
-            // if (entity.removeFromWorld) this.entities.splice(i, 1);
-            // else
-                entity.update();
+            if (entity.removeFromWorld) this.entities.splice(i, 1);
+            else entity.update();
 
         }
     }
@@ -56,6 +55,11 @@ class GameEngine {
             this.clockTick = this.timer.tick();
             this.update();
             this.draw();
+            if (gameOver) {
+                pause = true;
+                this.update();
+                this.draw();
+            }
         }
     }
 

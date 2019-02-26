@@ -6,28 +6,22 @@ class Chicken extends Animal {
         this.w = 48;
         this.h = 48;
         this.attackSpeed = 2;
-        this.scale = 3;
+        this.scale = 1;
         this.color = "red";
         this.defineAnimations();
         this.animation = this.forward;
     }
 
     update() {
-        if (this.health < 0 && this.isAlive) {
-            this.isAlive = false;
-            // playChicken();
-        }
-
         super.update();
     }
 
     draw(ctx) {
-        if (this.isAlive) {
             this.animation.drawFrame(gameEngine.clockTick, ctx, this.x, this.y, this.scale);
-            if (this.target !== undefined) {
+        if (this.target !== undefined && !gameOver) {
                 ctx.strokeStyle = this.color;
                 ctx.beginPath();
-                ctx.lineWidth = 12;
+                ctx.lineWidth = 2;
                 let x1 = this.x + this.w/2 * this.scale;
                 let y1 = this.y + this.h/2 * this.scale;
                 ctx.moveTo(x1, y1);
@@ -35,7 +29,6 @@ class Chicken extends Animal {
                 let y2 = this.target.y + this.target.h/2 * this.target.scale;
                 ctx.lineTo(x2,y2);
                 ctx.stroke();
-            }
         }
     }
 

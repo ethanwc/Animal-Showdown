@@ -8,7 +8,7 @@ AM.queueDownload("./img/owl.png");
 AM.queueDownload("./img/dragon.png");
 AM.queueDownload("./img/squirrel.png");
 
-
+let animalcap = 150;
 let gameOver = false;
 let gameEngine = undefined;
 
@@ -36,8 +36,7 @@ AM.downloadAll(function () {
         gameEngine.addEntity(assets[i]);
     }
 
-
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
         let x = Math.ceil((Math.random()) * 1000);
         let y = Math.ceil((Math.random()) * 1000);
         gameEngine.addEntity(new Cat(x, y));
@@ -62,7 +61,5 @@ AM.downloadAll(function () {
         y = Math.ceil((Math.random()) * 1000);
         gameEngine.addEntity(new Dragon(x, y));
     }
-
     gameEngine.start();
-
 });

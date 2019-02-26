@@ -8,34 +8,27 @@ class Tiger extends Animal {
         this.attackSpeed = 1;
         this.color = "black";
         this.defineAnimations();
-        this.scale = 4;
+        this.scale = 1.5;
         this.animation = this.forward;
     }
 
     update() {
-        if (this.health < 0 && this.isAlive) {
-            this.isAlive = false;
-            // playTiger();
-        }
-
         super.update();
     }
 
     draw(ctx) {
-        if (this.isAlive) {
             this.animation.drawFrame(gameEngine.clockTick, ctx, this.x, this.y, this.scale);
-            if (this.target !== undefined) {
+        if (this.target !== undefined && !gameOver) {
                 ctx.strokeStyle = this.color;
                 ctx.beginPath();
-                ctx.lineWidth = 12;
+                ctx.lineWidth = 2;
                 let x1 = this.x + this.w/2 * this.scale;
-                let y1 = this.y + this.h/2 * this.scale
+                let y1 = this.y + this.h/2 * this.scale;
                 ctx.moveTo(x1, y1);
                 let x2 = this.target.x + this.target.w/2 * this.target.scale;
                 let y2 = this.target.y + this.target.h/2 * this.target.scale;
                 ctx.lineTo(x2,y2);
                 ctx.stroke();
-            }
         }
     }
 
