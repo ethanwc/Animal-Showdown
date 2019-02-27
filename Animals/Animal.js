@@ -19,7 +19,7 @@ class Animal {
         this.lastReproduceCooldown = 10;
         this.lastAttack = 0;
         this.attackTime = .25;
-        this.lastReproduce = 0;
+        this.lastReproduce = gameEngine.timer.gameTime;
     }
 
 
@@ -79,9 +79,9 @@ class Animal {
                 else {
                     if (this.target.type === this.type && gameEngine.entities.length < animalcap) {
                         //check if reproduce cool down is over.
-                        if (gameEngine.timer.gameTime - this.lastReproduce > this.lastReproduceCooldown) {
-                            let x = Math.ceil((Math.random()) * 500);
-                            let y = Math.ceil((Math.random()) * 500);
+                        if ((gameEngine.timer.gameTime - this.lastReproduce) > this.lastReproduceCooldown) {
+                            let x = this.x + Math.ceil((Math.random()) * 100);
+                            let y = this.y + Math.ceil((Math.random()) * 100);
 
                             if (this.type === "cat") gameEngine.addEntity(new Cat(x, y));
                             if (this.type === "chicken") gameEngine.addEntity(new Chicken(x, y));
@@ -89,6 +89,10 @@ class Animal {
                             if (this.type === "owl") gameEngine.addEntity(new Owl(x, y));
                             if (this.type === "squirrel") gameEngine.addEntity(new Squirrel(x, y));
                             if (this.type === "tiger") gameEngine.addEntity(new Tiger(x, y));
+
+                            this.lastReproduce = gameEngine.timer.gameTime;
+                            this.target.lastReproduce = gameEngine.timer.gameTime;
+
                             this.pickTarget();
                         }
                     }

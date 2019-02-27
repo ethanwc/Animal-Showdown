@@ -28,7 +28,7 @@ class Tiger extends Animal {
                 let x2 = this.target.x + this.target.w/2 * this.target.scale;
                 let y2 = this.target.y + this.target.h/2 * this.target.scale;
                 ctx.lineTo(x2,y2);
-                ctx.stroke();
+            if (debug) ctx.stroke();
         }
     }
 
