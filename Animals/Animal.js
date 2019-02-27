@@ -7,7 +7,7 @@ class Animal {
         this.isAlive = true;
         this.x = x;
         this.y = y;
-        this.speed = 200;
+        this.speed = 400;
         this.maxRange = 200;
         this.removeFromWorld = false;
         this.animation = undefined;
