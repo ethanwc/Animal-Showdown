@@ -10,6 +10,7 @@ class Squirrel extends Animal {
         this.color = "orange";
         this.defineAnimations();
         this.animation = this.left;
+        this.lastReproduceCooldown = 5;
     }
 
     update() {

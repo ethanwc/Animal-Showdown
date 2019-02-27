@@ -37,30 +37,13 @@ AM.downloadAll(function () {
         gameEngine.addEntity(assets[i]);
     }
 
-    for (let i = 0; i < 10; i++) {
-        let x = Math.ceil((Math.random()) * r);
-        let y = Math.ceil((Math.random()) * r);
-        gameEngine.addEntity(new Cat(x, y));
-
-        x = Math.ceil((Math.random()) * r);
-        y = Math.ceil((Math.random()) * r);
-        gameEngine.addEntity(new Tiger(x, y));
-
-        x = Math.ceil((Math.random()) * r);
-        y = Math.ceil((Math.random()) * r);
-        gameEngine.addEntity(new Squirrel(x, y));
-
-        x = Math.ceil((Math.random()) * r);
-        y = Math.ceil((Math.random()) * r);
-        gameEngine.addEntity(new Owl(x, y));
-
-        x = Math.ceil((Math.random()) * r);
-        y = Math.ceil((Math.random()) * r);
-        gameEngine.addEntity(new Chicken(x, y));
-
-        x = Math.ceil((Math.random()) * r);
-        y = Math.ceil((Math.random()) * r);
-        gameEngine.addEntity(new Dragon(x, y));
+    for (let i = 0; i < 5; i++) {
+        gameEngine.addEntity(new Cat(0, 0));
+        gameEngine.addEntity(new Tiger(0, 1000));
+        gameEngine.addEntity(new Squirrel(500, 500));
+        gameEngine.addEntity(new Owl(1000, 1000));
+        gameEngine.addEntity(new Chicken(1000, 0));
+        gameEngine.addEntity(new Dragon(500, 1000));
     }
     gameEngine.start();
 });

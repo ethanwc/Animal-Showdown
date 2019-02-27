@@ -16,8 +16,10 @@ class Animal {
         this.left = undefined;
         this.right = undefined;
         this.target = undefined;
+        this.lastReproduceCooldown = 10;
         this.lastAttack = 0;
         this.attackTime = .25;
+        this.lastReproduce = 0;
     }
 
 
@@ -42,12 +44,8 @@ class Animal {
     Pick the nearest animal, that isn't the same species.
      */
     pickTarget() {
-        if (this.isAlive) {
-            let animal = this.getAnimal();
-            while (!(animal instanceof Animal))
-                animal = this.getAnimal();
-            this.target = animal;
-        }
+        if (this.isAlive)
+            this.target = this.getAnimal();
     }
 
     attack() {
@@ -80,16 +78,19 @@ class Animal {
                 //fighting and close enough
                 else {
                     if (this.target.type === this.type && gameEngine.entities.length < animalcap) {
-                        let x = Math.ceil((Math.random()) * 500);
-                        let y = Math.ceil((Math.random()) * 500);
+                        //check if reproduce cool down is over.
+                        if (gameEngine.timer.gameTime - this.lastReproduce > this.lastReproduceCooldown) {
+                            let x = Math.ceil((Math.random()) * 500);
+                            let y = Math.ceil((Math.random()) * 500);
 
-                        if (this.type === "cat") gameEngine.addEntity(new Cat(x, y));
-                        if (this.type === "chicken") gameEngine.addEntity(new Chicken(x, y));
-                        if (this.type === "dragon") gameEngine.addEntity(new Dragon(x, y));
-                        if (this.type === "owl") gameEngine.addEntity(new Owl(x, y));
-                        if (this.type === "squirrel") gameEngine.addEntity(new Squirrel(x, y));
-                        if (this.type === "tiger") gameEngine.addEntity(new Tiger(x, y));
-                        this.pickTarget();
+                            if (this.type === "cat") gameEngine.addEntity(new Cat(x, y));
+                            if (this.type === "chicken") gameEngine.addEntity(new Chicken(x, y));
+                            if (this.type === "dragon") gameEngine.addEntity(new Dragon(x, y));
+                            if (this.type === "owl") gameEngine.addEntity(new Owl(x, y));
+                            if (this.type === "squirrel") gameEngine.addEntity(new Squirrel(x, y));
+                            if (this.type === "tiger") gameEngine.addEntity(new Tiger(x, y));
+                            this.pickTarget();
+                        }
                     }
                     else this.target.health -= 100;
                 }
@@ -116,8 +117,72 @@ class Animal {
     }
 
     getAnimal() {
+
+        let dragons = [];
+        let tigers = [];
+        let cats = [];
+        let owls = [];
+        let chickens = [];
+        let squirrels = [];
+        let targets = [];
+
         let length = gameEngine.entities.length;
-        let rn = Math.floor(Math.random() * length);
-        return gameEngine.entities[rn];
+
+        for (let i = 0; i < length; i++) {
+            let entity = gameEngine.entities[i];
+            //if entity is an animal, and not it's self
+            if (entity instanceof Animal && entity !== this) {
+                if (entity instanceof Dragon) dragons.push(entity);
+                if (entity instanceof Tiger) tigers.push(entity);
+                if (entity instanceof Cat) cats.push(entity);
+                if (entity instanceof Owl) owls.push(entity);
+                if (entity instanceof Chicken) chickens.push(entity);
+                if (entity instanceof Squirrel) squirrels.push(entity);
+            }
+        }
+
+        //dragon's target everything
+        if (this.type === "dragon") {
+            targets = targets.concat(dragons);
+            targets = targets.concat(tigers);
+            targets = targets.concat(cats);
+            targets = targets.concat(owls);
+            targets = targets.concat(chickens);
+            targets = targets.concat(squirrels);
+        }
+
+        if (this.type === "tiger") {
+            targets = targets.concat(tigers);
+            targets = targets.concat(cats);
+            targets = targets.concat(owls);
+            targets = targets.concat(chickens);
+            targets = targets.concat(squirrels);
+        }
+
+        if (this.type === "cat") {
+            targets = targets.concat(cats);
+            targets = targets.concat(owls);
+            targets = targets.concat(chickens);
+            targets = targets.concat(squirrels);
+        }
+
+        if (this.type === "owl") {
+            targets = targets.concat(owls);
+            targets = targets.concat(chickens);
+            targets.concat(squirrels);
+        }
+
+        if (this.type === "chicken") {
+            targets = targets.concat(chickens);
+            targets = targets.concat(squirrels);
+        }
+
+        if (this.type === "squirrel")
+            targets = targets.concat(squirrels);
+
+        let rn = Math.floor(Math.random() * targets.length);
+
+
+        return targets[rn];
     }
 }
