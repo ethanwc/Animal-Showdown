@@ -11,11 +11,15 @@ AM.queueDownload("./img/squirrel.png");
 let animalcap = 500;
 let gameOver = false;
 let gameEngine = undefined;
-let debug = false;
+let debug = true;
 
 window.onkeydown = function(e) {
     if (e.keyCode === 80) pause = !pause;
 };
+
+function toggleDebug() {
+    debug = !debug;
+}
 
 
 AM.downloadAll(function () {
@@ -47,9 +51,9 @@ AM.downloadAll(function () {
         x = Math.ceil((Math.random()) * 100);
         y = Math.ceil((Math.random()) * 100);
         gameEngine.addEntity(new Tiger(0 + x, 1000 + y));
-        x = Math.ceil((Math.random()) * 100);
-        y = Math.ceil((Math.random()) * 100);
-        gameEngine.addEntity(new Squirrel(500 + x, 500 + y));
+        x = Math.ceil((Math.random()) * 1000);
+        y = Math.ceil((Math.random()) * 1000);
+        gameEngine.addEntity(new Squirrel(x, y));
         x = Math.ceil((Math.random()) * 100);
         y = Math.ceil((Math.random()) * 100);
         gameEngine.addEntity(new Owl(1000 + x, 1000 + y));

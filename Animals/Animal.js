@@ -2,12 +2,11 @@ class Animal {
     constructor(x, y, type) {
         this.type = type;
         // this.color = "#"+((1<<24)*Math.random()|0).toString(16);
-        this.health = 100;// + Math.ceil(Math.random() * 50);
-        this.mana = 100;
+        this.health = 200;// + Math.ceil(Math.random() * 50);
         this.isAlive = true;
         this.x = x;
         this.y = y;
-        this.speed = 400;
+        this.speed = 800;
         this.maxRange = 200;
         this.removeFromWorld = false;
         this.animation = undefined;
@@ -146,16 +145,8 @@ class Animal {
         }
 
         //dragon's target everything
-        if (this.type === "dragon") {
+        if (this.type === "dragon" || this.type === "tiger") {
             targets = targets.concat(dragons);
-            targets = targets.concat(tigers);
-            targets = targets.concat(cats);
-            targets = targets.concat(owls);
-            targets = targets.concat(chickens);
-            targets = targets.concat(squirrels);
-        }
-
-        if (this.type === "tiger") {
             targets = targets.concat(tigers);
             targets = targets.concat(cats);
             targets = targets.concat(owls);
