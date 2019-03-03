@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Animal Showdown</title>
 
+    <script type="text/javascript" src="http://24.16.255.56:8888/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="Game/assetmanager.js"></script>
     <script type="text/javascript" src="Game/animation.js"></script>
     <script type="text/javascript" src="Game/gameengine.js"></script>
@@ -26,6 +27,14 @@
     </canvas>
 </center>
 <center>
+    <button type="button" id="save" style = "background-color: mediumslateblue; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;">Save</button>
     <button type="button" onclick="toggleDebug()" style = "background-color: mediumslateblue; /* Green */
   border: none;
   color: white;
@@ -34,6 +43,15 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;">Show Target</button>
+    <button type="button" id="load" style = "background-color: mediumslateblue; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;">Load</button>
+
 </center>
 <center>
     <div>

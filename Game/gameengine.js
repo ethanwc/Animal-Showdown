@@ -9,6 +9,8 @@ window.requestAnimFrame = (function () {
         };
 })();
 
+var socket = io.connect("http://24.16.255.56:8888");
+
 class GameEngine {
     constructor() {
         this.entities = [];
@@ -51,12 +53,11 @@ class GameEngine {
     }
 
     loop() {
-        if (!pause) {
+        if (!gameOver && !pause) {
             this.clockTick = this.timer.tick();
             this.update();
             this.draw();
             if (gameOver) {
-                pause = true;
                 this.update();
                 this.draw();
             }
