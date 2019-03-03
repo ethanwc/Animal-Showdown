@@ -55,7 +55,7 @@ function getState() {
     let animals = [];
     for (let i = 0; i < gameEngine.entities.length; i++) {
         let entity = gameEngine.entities[i];
-        if (entity instanceof Animal && !(entity instanceof Squirrel)) {
+        if (entity instanceof Animal) {
             let animal = {
                 "type": entity.type,
                 "health": entity.health,
@@ -92,6 +92,8 @@ function reloadGame(data) {
         if (type === "tiger") newEntity = new Tiger(x, y);
 
         newEntity.health = health;
+        newEntity.targetx = animal.targetx;
+        newEntity.targety = animal.targety;
         gameEngine.addEntity(newEntity);
     }
 
@@ -103,27 +105,24 @@ function reloadGame(data) {
 function setTargets(data) {
     let found = 0;
     for (let i = 0; i < gameEngine.entities.length; i++) {
-        for (let j = 0; j < data.data.length; j++)
+        for (let j = 0; j < gameEngine.entities.length; j++)
         {
-            let possibleTarget = gameEngine.entities[i];
-            let animal = data.data[j];
+            let target = gameEngine.entities[i];
+            let targetee = gameEngine.entities[j];
 
-            if (animal.targetx === possibleTarget.x && animal.targety === possibleTarget.y) {
-                console.log("target cords: " + animal.targetx + " " + possibleTarget.x + " : " +  animal.targety + " " + possibleTarget.y);
+            if (targetee.targetx === target.x && targetee.targety === target.y){
+                targetee.targetx = target.x;
+                targetee.targety = target.y;
+                targetee.target = target;
                 found++;
-                animal.target = possibleTarget;
-                // possibleTarget.target = animal;
-                // animal.target = possibleTarget;
-
             }
+
         }
 
     }
     for (let i = 0; i < gameEngine.entities.length; i++) {
         console.log(gameEngine.entities[i].targety)
     }
-
-        console.log("size: " + gameEngine.entities.length + " size: " + data.data.length + " found x: " + found);
 }
 
 AM.downloadAll(function () {
@@ -147,7 +146,7 @@ AM.downloadAll(function () {
         gameEngine.addEntity(assets[i]);
     }
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 7; i++) {
         let x = Math.ceil((Math.random()) * 100);
         let y = Math.ceil((Math.random()) * 100);
         x = Math.ceil((Math.random()) * 100);

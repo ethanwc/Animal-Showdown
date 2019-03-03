@@ -19,6 +19,8 @@ class Animal {
         this.lastAttack = 0;
         this.attackTime = .25;
         this.lastReproduce = gameEngine.timer.gameTime;
+        this.targetx = undefined;
+        this.targety = undefined;
     }
 
 
@@ -35,6 +37,9 @@ class Animal {
             // console.log(this, " is attacking " , this.target);
         }
         else {
+            console.log("picking a new target: ",
+                this.type, " x,y: ", this.x, this.y,
+                "alleged: ", this.targetx, this.targety);
             this.pickTarget()
         }
     }
